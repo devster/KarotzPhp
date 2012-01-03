@@ -1,0 +1,21 @@
+{
+    "name": "karotz/karotz",
+    "type": "library",
+    "description": "PHP library for the Karotz REST API",
+    "keywords": ["Nabaztag", "Karotz", "API REST"],
+    "homepage": "http://github.com/devster/KarotzPhp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Perret",
+            "email": "jeremy@devster.org"
+        },
+        {
+            "name": "Thierry Geindre",
+            "email": "karotz@nostalgeek.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
