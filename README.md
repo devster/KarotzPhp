@@ -7,7 +7,7 @@ Installation
 Old school
 ----------
 
-Download the last version of KarotzPhp and add the `Karotz` namespace 
+Download the latest version of KarotzPhp and add the `Karotz` namespace 
 to your PSR-0 autoloading system, or simply require the autoload.php
 
 Composer
