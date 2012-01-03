@@ -48,11 +48,12 @@ KarotzPhp is not involved in managing the life cycle of the Interactive ID, but 
 a way to get it with the signed START method:
 
 ```php
-use Karotz;
+use Karotz\Karotz;
+
 $kz = new Karotz();
 
 // Open a session and save the Interactive ID in the Karotz object
-$kz->start('install ID', 'API key', 'secret key');
+$response = $kz->start('install ID', 'API key', 'secret key');
 ```
 
 Features
