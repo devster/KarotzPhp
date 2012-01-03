@@ -39,6 +39,22 @@ else
     echo "Error: ".$response->getCode()." ".$response->getDescription();
 ```
 
+Get the Interactive ID
+----------------------
+
+To run, the Karotz REST API needs an Interactive ID, which is reset every 15 minutes.
+Check the official documentation to know how retrieve this ID. http://dev.karotz.com/api/interactiveid.html
+KarotzPhp is not involved in managing the life cycle of the Interactive ID, but provides 
+a way to get it with the signed START method:
+
+```php
+use Karotz;
+$kz = new Karotz();
+
+// Open a session and save the Interactive ID in the Karotz object
+$kz->start('install ID', 'API key', 'secret key');
+```
+
 Features
 ========
 
