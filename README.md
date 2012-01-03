@@ -27,15 +27,16 @@ Usage
 ```php
 use Karotz\Karotz;
 
-$kz = new karotz('interactive ID');
+$kz = new Karotz('interactive ID');
 
-// Makes flash your Karotz LED in red
+// Make flash your Karotz LED in red
 $response = $kz->ledPulse('FF0000', 500, 500);
 
-// test the response
-if ($reponse->getStatus()) {
-    echo "
-}
+// Test the response
+if ($response->getStatus())
+    echo "Rabbit flashs red light!";
+else
+    echo "Error: ".$response->getCode()." ".$response->getDescription();
 ```
 
 Features
@@ -54,8 +55,8 @@ Requirements
 Author
 ------
 
-Jeremy Perret <jeremy@devster.org>
-Thierry Geindre <karotz@nostalgeek.org>
+- Jeremy Perret <jeremy@devster.org>
+- Thierry Geindre <karotz@nostalgeek.org>
 
 License
 -------
