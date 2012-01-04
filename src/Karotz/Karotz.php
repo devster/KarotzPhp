@@ -77,7 +77,7 @@ class Karotz
      */
     public function start($install_id = null, $api_key = null, $secret_key = null)
     {
-        if (is_null($this->interactive_id))
+        if (! is_null($this->interactive_id))
             throw \Exception(sprintf("An interactiveID is already set (%s), you don't need to start a new session", $this->interactive_id));
         
         if (! is_null($install_id)) $this->install_id = $install_id;
