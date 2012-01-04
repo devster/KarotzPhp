@@ -12,7 +12,6 @@
 namespace Karotz;
 
 use Karotz\Transport\TransportInterface;
-use Karotz\Transport\FileTransport;
 
 /**
  * A class to interact with the Karotz REST API
@@ -43,7 +42,8 @@ class Karotz
         $api_key,
         $secret_key,
         $transport,
-        $last_request
+        $last_request,
+        $default_transport_class = '\Karotz\Transport\CurlTransport'
     ;
     
     /**
@@ -540,7 +540,7 @@ class Karotz
     public function sendRequest(Request $request)
     {
         if (is_null($this->transport))
-            $this->transport = new FileTransport();
+            $this->transport = new $this->default_transport_class();
         
         $ret = $this->transport->sendRequest($request);
         
