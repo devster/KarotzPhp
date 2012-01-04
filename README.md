@@ -27,16 +27,21 @@ Usage
 ```php
 use Karotz\Karotz;
 
-$kz = new Karotz('interactive ID');
+$kz = new Karotz('Interactive ID');
 
-// Make flash your Karotz LED in red
-$response = $kz->ledPulse('FF0000', 500, 500);
+try {
+	// Make flash your Karotz LED in red
+	$response = $kz->ledPulse('FF0000', 500, 500);
+	
+	// Test the response
+	if ($response->getStatus())
+	    echo "Rabbit flashs red light!";
+	else
+	    echo $response->getCode().": ".$response->getDescription();
 
-// Test the response
-if ($response->getStatus())
-    echo "Rabbit flashs red light!";
-else
-    echo "Error: ".$response->getCode()." ".$response->getDescription();
+} catch(\Exception $e) {
+	echo $e->getMessage();
+}
 ```
 
 Get the Interactive ID
