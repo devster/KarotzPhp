@@ -20,11 +20,33 @@ use Karotz\Request;
  */
 class CurlTransport implements TransportInterface
 {
+    public $ch;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    	$this->ch = curl_init();
+    }
+
     /**
      * {@inheritdoc}
      */
     public function sendRequest(Request $request)
     {
-        // TODO
+        curl_setopt_array($this->ch, array(
+        	CURLOPT_URL => $request->getRestUrl(),
+        	CURLOPT_RETURNTRANSFER => true,
+	    ));
+
+	    if (false === $ret = curl_exec($this->ch))
+	    	throw new \Exception(curl_error($this->ch), curl_errno($this->ch));
+
+	    $info = curl_getinfo($this->ch);
+	    if (200 != $info['http_code'])
+	    	throw new \Exception(sprintf("Karotz REST API is unreachable (returned http code: %s)", $info['http_code']), 1);
+
+	    return $ret;
     }
 }
